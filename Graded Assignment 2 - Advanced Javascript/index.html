@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicant Details</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="index">
+    <div class="nav">
+        <button class="btn-main" id="prev">Prev</button>
+        <div class="search-box">
+            <input type="search" id="search-box" placeholder="Search for keywords to filter the results...">
+        </div>
+        <button class="btn-main" id="next">Next</button>
+    </div>
+
+    <div class="cv-wrapper">
+        <div class="cv-header">
+            <span id="img-frame"><img src="./profile-icon2.png" alt="profile-img" id="img"></span>
+            <h1 id="full-name">John Smith</h1>
+            <h4>Applied For: <span id="job-title"></span></h4>
+        </div>
+        
+        <div class="cv-wrapper-content-grid">
+            <div class="extras">
+                <div class="personal-info">
+                    <h3 class="title">Personal Information</h3>
+                    <ul class="info">
+                        <li id="phone">9876543210</li>
+                        <li id="email">john@gmail.com</li>
+                        <li id="profile">LinkedIn</li>
+                        <li id="address">Kolkata, India</li>
+                    </ul>
+                </div>
+
+                <div class="skills">
+                    <h3 class="title">Technical Skills</h3>
+                    <ul id="tech-skills">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+
+                <div class="hobbies">
+                    <h3 class="title">Hobbies</h3>
+                    <ul id="hobby">
+                        <li>Wildlife</li>
+                        <li>Dance</li>
+                        <li>Workout</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="cv-main">
+                <div class="experience">
+                    <h2 class="title">Work Experience</h2>
+                    <span class="highlight">Company Name: </span><span id="company">Harman</span><br><br>
+                    <span class="highlight">Position: </span><span id="position">Associate Engineer</span><br><br>
+                    <span class="highlight">Start Date: </span><span id="start">2013-01-01</span><br><br>
+                    <span class="highlight">End Date: </span><span id="end">2014-01-01</span><br><br>
+                    <span class="highlight">Summary: </span><span id="summary">Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Illum modi sed repudiandae earum perferendis iste sapiente ex accusantium facilis,
+                        debitis repellat facere, dolor ab a veritatis velit consequatur minima animi? Lorem ipsum dolor sit
+                        amet consectetur adipisicing elit. Veritatis deleniti commodi et vel eligendi, voluptas minima, enim
+                        similique laborum ab consequuntur maxime adipisci nostrum earum odit delectus, vitae porro
+                        perspiciatis!</span><br><br>
+                </div>
+
+                <div class="projects">
+                    <h2 class="title">Projects</h2>
+                    <span class="highlight" id="proj-name">Project Name: </span><span id="proj-desc">Lorem ipsum dolor sit
+                        amet consectetur adipisicing elit. Illum modi sed repudiandae earum perferendis iste sapiente ex
+                        accusantium facilis, debitis repellat facere, dolor ab a veritatis velit consequatur minima animi?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis deleniti commodi et vel eligendi,
+                        voluptas minima, enim similique laborum ab consequuntur maxime adipisci nostrum earum odit delectus,
+                        vitae porro perspiciatis!</span><br><br>
+                </div>
+
+                <div class="education">
+                    <h2 class="title">Education</h2>
+                    <ul class="edu">
+                        <li><span class="highlight" id="UG">UG: </span><span>Lorem ipsum dolor sit amet consectetur,
+                                adipisicing elit. Dolores at praesentium nam quasi temporibus ea hic sunt maiores, odit in
+                                nostrum quis officia et dolorum. Explicabo ea ducimus velit eos.</span></li>
+                        <li><span class="highlight" id="PU">PU: </span><span>Lorem ipsum dolor sit, amet consectetur
+                                adipisicing elit. Blanditiis alias magnam doloremque natus voluptate voluptates fuga.
+                                Explicabo aliquid soluta itaque aspernatur. Alias quod atque recusandae voluptatum tenetur
+                                voluptatem aperiam necessitatibus.</span></li>
+                        <li><span class="highlight" id="school">High School: </span><span>Lorem ipsum dolor sit amet
+                                consectetur adipisicing elit. Veritatis, omnis eaque at ullam iure perferendis quisquam
+                                ipsum? Autem molestiae quas necessitatibus, sit itaque culpa fugit expedita. Eum dicta vero
+                                vel!</span></li>
+                    </ul>
+                </div>
+
+                <div class="internship">
+                    <h2 class="title">Internship</h2>
+                    <ul class="intern">
+                        <li><span class="highlight">Company Name: </span><span id="company_intern">Harman</span></li>
+                        <li><span class="highlight">Position: </span><span id="position_intern">Intern</span></li>
+                        <li><span class="highlight">Start Date: </span><span id="start_intern">2013-01-01</span></li>
+                        <li><span class="highlight">End Date: </span><span id="end_intern">2014-01-01</span></li>
+                        <li><span class="highlight">Summary: </span><span id="summary_intern">Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Illum modi sed repudiandae earum perferendis iste sapiente ex accusantium facilis,
+                            debitis repellat facere, dolor ab a veritatis velit consequatur minima animi? Lorem ipsum dolor sit
+                            amet consectetur adipisicing elit. Veritatis deleniti commodi et vel eligendi, voluptas minima, enim
+                            similique laborum ab consequuntur maxime adipisci nostrum earum odit delectus, vitae porro
+                            perspiciatis!</span></li>
+                    </ul>
+                </div>
+
+                <div class="achievements">
+                    <h2 class="title">Achievements</h2>
+                    <ul class="achieve">
+                        <li><span class="highlight">Summary: </span><span id="achieve">Lorem ipsum, dolor sit amet consectetur adipisicing elit. A velit itaque blanditiis porro eaque voluptatem quidem, pariatur officia non ipsa? Eum nihil in deleniti placeat tenetur voluptatem voluptate, ipsam exercitationem!</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
