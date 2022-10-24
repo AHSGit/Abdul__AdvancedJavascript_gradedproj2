@@ -5,11 +5,11 @@ function toggle() {
     event.preventDefault();
     if (state) {
         document.querySelector("#password").setAttribute("type", "password");
-        document.querySelector("#eye").style.color = '#7a797e';
+        document.querySelector("#eye").innerHTML = `<i class="fa fa-eye-slash" aria-hidden="true" onclick="toggle()"></i>`;
         state = false;
     } else {
         document.querySelector("#password").setAttribute("type", "text");
-        document.querySelector("#eye").style.color = '#5887ef';
+        document.querySelector("#eye").innerHTML = `<i class="fa fa-eye" aria-hidden="true" onclick="toggle()"></i>`;
         state = true;
     }
 }
@@ -28,7 +28,7 @@ function validate() {
     var storedUsername = localStorage.getItem("username");
     var storedPassword = localStorage.getItem("password");
 
-    if (username == storedUsername && password === storedPassword) {
+    if (username == storedUsername && password == storedPassword) {
         window.location.href = "./index.html";
     } else {
         message.innerHTML = '*Login Failed: Invalid username or password!';
@@ -54,11 +54,60 @@ fetch('Data.json')
     .then((res) => res.json())
     .then(data => populatePage(data));
 
+
+// to reload session if search fails
+function refreshPage() {
+    window.location.reload(true);
+}
+
 var i = 0;
 function populatePage(data) {
 
     displayData();
 
+    // search and filter results
+    let jobs = data.resume;
+
+    const searchInput = document.querySelector('#search-box');
+    searchInput.addEventListener("keypress", (e) => {
+        try {
+            if (e.key === 'Enter') {
+                let searchValue = e.target.value.toLowerCase();
+
+                data.resume = data.resume.filter(function (j) {
+                    var job = j.basics.AppliedFor.toLowerCase();
+                    return job.includes(searchValue);
+                })
+
+                displayData();
+            }
+        }
+
+        // failed search scenario
+        catch (error) {
+            if (error) {
+                let noResult = document.querySelector('.cv-wrapper');
+                noResult.innerHTML = '<img src="./error-screen.png" alt="error-img" style="width: 100%; border-radius:5px" onclick="refreshPage()">';
+                alert("Invalid search: Click image to refresh!")
+            }
+        }
+
+    })
+
+    // reset data object state for new search
+    var eventList = ["change", "keyup", "cut", "paste", "input", "propertychange", "keydown"];
+    for (event of eventList) {
+        searchInput.addEventListener(event, (e) => {
+            if (e.keyCode == 8 || e.keyCode == 46 || e.isComposing) {
+                data.resume = jobs;
+                i = 0;
+            }
+        });
+
+    }
+
+
+    // button configurations 
     let prevBtn = document.querySelector("#prev");
     prevBtn.addEventListener("click", () => {
         if (i > 0) i--;
@@ -92,7 +141,7 @@ function populatePage(data) {
 
         // profile picture with a fallback default
         let profileImg = document.querySelector('#img-frame');
-        profileImg.innerHTML = `<img src="${data.resume[i].basics.image}" alt="profile-img" id="img" onerror="this.onerror=null;this.src='./profile-icon2.png'">`;
+        profileImg.innerHTML = `<img src="${data.resume[i].basics.image}" alt="profile-img" id="img" onerror="this.onerror=null;this.src='./profile-icon.png'">`;
 
 
         // phone number
@@ -207,5 +256,4 @@ function populatePage(data) {
         achievements.innerHTML = achieveList;
 
     }
-
-};
+}
